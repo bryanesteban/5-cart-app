@@ -11,18 +11,18 @@ const initialCartItems = [
 ]
 export const CartApp = () => {
     
-    const [ cartItems, setCartItems] = useState(initialCartItems);
+    const [ carItems, setCartItems] = useState(initialCartItems);
     
     const handlerAddProductCart = (product) =>{
 
-        const hasItem = cartItems.find((i) => i.product.id === product.id);
+        const hasItem = carItems.find((i) => i.product.id === product.id);
 
         if(hasItem)
             { 
 
                 /*setCartItems([
 
-                    ...cartItems.filter((i) => i.product.id !== product.id),
+                    ...carItems.filter((i) => i.product.id !== product.id),
                     {
                         product,
                         quantity: hasItem.quantity + 1,
@@ -35,12 +35,11 @@ export const CartApp = () => {
                             i.quantity = i.quantity + 1;
                         }
                         return i;
-                    })
-                )
-            
-        }else{
-            setCartItems([
-                ...cartItems,
+                    } 
+                })
+             }
+        else{
+            setCartItems([...carItems,
                 {
                     product,
                     quantity: 1,
@@ -58,7 +57,7 @@ export const CartApp = () => {
             <CatalogView handler = {product => handlerAddProductCart(product)}/>
 
                <div className="my-4 w-50">
-                    <CartView items={ cartItems }/>
+                    <CartView items={ carItems }/>
                </div>
             </div>
         </div>

@@ -58,7 +58,7 @@ export const CartApp = () => {
             <CatalogView handler = {product => handlerAddProductCart(product)}/>
 
                <div className="my-4 w-50">
-                    <CartView items={ cartItems }/>
+                    <CartView items={ carItems }/>
                </div>
             </div>
         </div>
