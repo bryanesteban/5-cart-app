@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { calculateTotal } from "../services/productService";
 
 
 export const CartView = ({handlerDelete, items}) => {
@@ -8,9 +7,9 @@ export const CartView = ({handlerDelete, items}) => {
 
     useEffect (() => {
 
-        setTotal(calculateTotal(items));
-        sessionStorage.setItem('cart', JSON.stringify(items));
-
+        setTotal(
+            items.reduce((accumulator, item) => accumulator + item.product.price*item.quantity, 0)
+        );
     }, [items])
 
     const onDeleteProduct = (id) =>{
@@ -47,7 +46,7 @@ export const CartView = ({handlerDelete, items}) => {
                         <tfoot>
                             <tr>
                                 <td colSpan="3" className="text-end fw-bold">Total</td>
-                                <td colSpan="2" className="text-start fw-bold">{total}</td>
+                                <td colSpan="2" className="text-start fw-bold">total</td>
 
                             </tr>
                         </tfoot>

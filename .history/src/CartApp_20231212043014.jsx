@@ -2,9 +2,15 @@ import { useState } from "react";
 import { CartView } from "./components/CartView";
 import { CatalogView } from "./components/CatalagoView";
 
-const initialCartItems = JSON.parse(sessionStorage.getItem('cart'));
+const initialCartItems = [
+    /*{
+        product:{},
+        quantity: 0,
+        total: 0
+    }*/
+]
 export const CartApp = () => {
-    console.log(initialCartItems);
+    
     const [ cartItems, setCartItems] = useState(initialCartItems);
     
     const handlerAddProductCart = (product) =>{
@@ -52,19 +58,15 @@ export const CartApp = () => {
     return (
         <>
 
-        < div className="container my-4">
+        < div className="container">
 
         <h3>Cart App</h3>
             <div className="row">
             <CatalogView handler = {product => handlerAddProductCart(product)}/>
-                {cartItems?.length <= 0 || 
-                    ( 
 
-                    
-                    <div className="my-4 w-50">
-                    <CartView items={ cartItems}  handlerDelete={handlerDeleteProduct}/>
+               <div className="my-4 w-50">
+                    <CartView items={ cartItems,  handlerDeleteProduct={handlerDeleteProduct}}/>
                </div>
-                )}
             </div>
         </div>
         </>

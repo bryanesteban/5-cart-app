@@ -6,7 +6,7 @@ export const getProducts = () => {
 
 }
 
-export const calculateTotal = (items) =>{
+export const calculateTotal (items) =>{
      return items.reduce(
         (accumulator, item) => accumulator + item.product.price * item.quantity,
          0);

@@ -4,7 +4,7 @@ import { CatalogView } from "./components/CatalagoView";
 
 const initialCartItems = JSON.parse(sessionStorage.getItem('cart'));
 export const CartApp = () => {
-    console.log(initialCartItems);
+    console.log(initialCartItems)
     const [ cartItems, setCartItems] = useState(initialCartItems);
     
     const handlerAddProductCart = (product) =>{
