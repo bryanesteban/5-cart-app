@@ -1,6 +1,8 @@
+import { CartView } from "./components/CartView";
+import { CatalogView } from "./components/CatalagoView";
 import { Navbar } from "./components/Navbar";
 import { useItemsCart } from "./hooks/useItemsCart";
-import { CartRoutes } from "./routes/CartRoutes";
+import { Navigate, Route,Routes } from 'react-router-dom'
 
 export const CartApp = () => {
     
@@ -12,12 +14,8 @@ export const CartApp = () => {
         < div className="container my-4">
 
         <h3>Cart App</h3>
+
             <div className="row"> 
-            <CartRoutes 
-                cartItems={cartItems} 
-                handlerAddProductCart={handlerAddProductCart} 
-                handlerDeleteProduct={handlerDeleteProduct} 
-            />
             </div>
         </div>
         </>

@@ -17,7 +17,7 @@ export const CartView = ({handlerDelete, items}) => {
     }
 
     const onCatalog = () =>{
-        navigate('/catalog');
+
     }
     return (
     <>

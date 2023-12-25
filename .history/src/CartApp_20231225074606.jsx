@@ -12,12 +12,12 @@ export const CartApp = () => {
         < div className="container my-4">
 
         <h3>Cart App</h3>
-            <div className="row"> 
             <CartRoutes 
                 cartItems={cartItems} 
                 handlerAddProductCart={handlerAddProductCart} 
                 handlerDeleteProduct={handlerDeleteProduct} 
             />
+            <div className="row"> 
             </div>
         </div>
         </>
