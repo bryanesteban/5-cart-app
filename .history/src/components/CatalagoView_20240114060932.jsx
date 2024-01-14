@@ -7,11 +7,14 @@ import { ProductCardView } from "./ProductCardView";
 export const CatalogView = ({ handler }) => {
 
     const [ products, setProducts] = useState([]);
-   
+    const [isLoading, setIsLoading] = useState(true);
+    const findAll = async() =>{
+        const prods = await getProducts();
+        setProducts(prods);
+    }
     useEffect(
         () => {
-            setProducts(getProducts());
-
+            findAll();
         },[] );
     return(
         <>
@@ -20,7 +23,7 @@ export const CatalogView = ({ handler }) => {
             <div className="col-4  my-2" 
                  key = { prod.id }>
                <ProductCardView 
-                    handler = {handler}
+                    handler = { handler }
                     id={prod.id}
                     name={prod.name} 
                     description={prod.description} 

@@ -19,12 +19,6 @@ export const CatalogView = ({ handler }) => {
         },[] );
     return(
         <>
-        {
-            isLoading && 
-            <div className="alert alert-info">
-                Cargando....
-            </div>
-        }
         <div className="row">
             { products.map(prod => (
                 <div className="col-4  my-2" 

@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/productService";
-import { CartItem } from "./CartItem";
+import { ProductCardView } from "./ProductCardView";
 
 
 
-export const CartView = () => {
+export const CatalogView = ({ handler }) => {
 
     const [ products, setProducts] = useState([]);
    
+    const findAll = async() =>{
+        const prods = await getProducts();
+        setProducts(prods);
+    }
     useEffect(
         () => {
-            setProducts(getProducts());
+            
 
         },[] );
     return(
         <>
         { products.map(prod => (
 
-            <div className="col-4  my-2" key = { prod.id }>
-               <CartItem 
+            <div className="col-4  my-2" 
+                 key = { prod.id }>
+               <ProductCardView 
+                    handler = { handler }
+                    id={prod.id}
                     name={prod.name} 
                     description={prod.description} 
                     price={prod.price}
